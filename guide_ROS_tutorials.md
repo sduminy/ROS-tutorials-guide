@@ -1,12 +1,6 @@
----
-author:
-- 'Segolene Duminy, Northeastern University'
-date: '03/05/2020'
-title: 'Guide for ROS Tutorials using ROSbot 2.0'
----
-
-Preamble {#preamble .unnumbered}
-========
+# Guide for ROS Tutorials using ROSbot 2.0
+author : Segolene Duminy, Northeastern University\
+date : 03/05/2020
 
 The purpose of this guide is to help ROS beginners succeed the ROS
 tutorials made by husarion, available

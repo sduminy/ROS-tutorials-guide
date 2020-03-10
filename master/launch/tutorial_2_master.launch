@@ -1,0 +1,7 @@
+<launch>
+
+     <include file="$(find tutorial_pkg)/launch/tutorial_pkg_node.launch"/>
+     
+     <include file="$(find tutorial_pkg)/launch/image_saver.launch"/>
+
+</launch>

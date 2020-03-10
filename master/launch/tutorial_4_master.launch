@@ -1,0 +1,14 @@
+<launch>
+
+    <arg name="teach" default="true"/>
+    <arg name="recognize" default="false"/>
+
+    <node name="teleop_twist_keyboard" pkg="teleop_twist_keyboard" type="teleop_twist_keyboard.py" output="screen" />
+
+    <node pkg="find_object_2d" type="find_object_2d" name="find_object_2d">
+        <remap from="image" to="/camera/rgb/image_raw"/>
+        <param name="gui" value="$(arg teach)"/>
+        <param if="$(arg recognize)" name="objects_path" value="~/Documents/objects/"/>
+    </node>
+
+</launch>

@@ -1,0 +1,15 @@
+<launch>
+
+    <arg name="use_rosbot" default="true"/>
+    <arg name="use_gazebo" default="false"/>
+
+    <include if="$(arg use_gazebo)" file="$(find rosbot_gazebo)/launch/maze_world.launch"/>
+    <include if="$(arg use_gazebo)" file="$(find rosbot_gazebo)/launch/rosbot_world.launch"/>
+
+    <node if="$(arg use_rosbot)" pkg="rplidar_ros" type="rplidarNode" name="rplidar" />
+    <include if="$(arg use_rosbot)" file="$(find rosbot_ekf)/launch/all.launch" /> 
+   
+    <node if="$(arg use_rosbot)" pkg="tf" type="static_transform_publisher" name="laser_broadcaster" args="0 0 0 3.14 0 0 base_link laser_frame 100" />
+
+</launch>
+

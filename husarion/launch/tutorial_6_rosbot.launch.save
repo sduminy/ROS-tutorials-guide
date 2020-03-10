@@ -1,0 +1,16 @@
+      tutorial_6_master.launch       Modified  
+
+<launch>
+
+    <arg name="use_rosbot" default="true"/>
+    <arg name="use_gazebo" default="false"/>
+    
+    <include if="$(arg use_gazebo)" file="$(find rosbot_gazebo)/launch/maze_world.launch"/>
+    <include if="$(arg use_gazebo)" file="$(find rosbot_gazebo)/launch/rosbot.launch"/>
+
+    <include if="$(arg use_rosbot)" file="$(find rosbot_ekf)/launch/rosserial_bridge.launch" /> 
+
+    <node if="$(arg use_rosbot)" pkg="tf" type="static_transform_publisher" name="laser_broadcaster" args="0 0 0 3.14 0 0 base_link laser_frame 100" />
+
+</launch>
+
